@@ -36,6 +36,6 @@ Welcome to my Repository.Within  README.md file I will be including my youtube l
 
 
 <p align="center">
-  <img src="Images/microprocessor.jpg" alt="Project Image" width="500"/>
+  <img src="Images/microprocessor.jpg" alt="Project Image" width="100%"/>
 </p>
 
