@@ -1,0 +1,24 @@
+# Build files
+*.ino.cpp
+*.hex
+*.elf
+*.bin
+*.map
+
+# AVR / compiled objects
+*.o
+*.a
+*.lst
+
+# Build directories
+build/
+Debug/
+Release/
+
+# Arduino IDE temp fils
+*.tmp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
