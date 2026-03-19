@@ -4,7 +4,7 @@
 
 No Updates Currently.
 
-## Installation and TASKS.
+## Installation and TASKS
 
 - [x] ==Install and register through Ardunio IDE.==
 - [x] ==Install and register through Git.==
