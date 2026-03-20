@@ -1,8 +1,17 @@
 # Nihad Oruclu. ID: P000019867 CRN: 20919
 
-## Updates
+## Updates – Version 1.2
 
-No Updates Currently.
+### Added
+- Lab Task 1 – fully commented
+- Lab Task 2 – fully commented
+- Lab Task 3 – fully commented
+- Lab Task 4 – fully commented
+- `.gitignore` file
+- MIT License
+
+Flowcharts for all labs have been created and will be added soon.  
+The repository is now public for easy access and assessment.
 
 ## Installation and TASKS
 
