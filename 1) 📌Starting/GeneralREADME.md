@@ -38,15 +38,17 @@ The repository is now public for easy access and assessment.
 ## 📚 References
 - ATmega328P Datasheet (Microchip Technology, 2018)  
 https://ww1.microchip.com/downloads/en/devicedoc/atmel-7810-automotive-microcontrollers-atmega328p_datasheet.pdf  
-Used for SPI register configuration (SPCR, SPSR, SPDR), CPHA/CPOL timing diagrams, SPI block diagram, and hardware-level communication behavior.
+
 
 - ATmega328P Product Page (Microchip)  
 https://www.microchip.com/en-us/product/ATMEGA328P  
-Used for official microcontroller specifications and overview.
+
 
 - Alternative Datasheet Mirror  
 https://www.alldatasheet.com/datasheet-pdf/pdf/1425005/MICROCHIP/ATMEGA328P.html  
-Backup reference for SPI register definitions and timing diagrams.
+
+- Unit Converter
+https://www.rapidtables.com/convert/index.html
 
 
 ## 📝 Notes
