@@ -24,6 +24,10 @@ The repository is now public for easy access and assessment.
 - [x] ==Finish LAB 3.==
 - [x] ==Finish LAB 4.==
 - [x] ==Finish LAB 5.==
+- [X] ==Finish LAB 6.==
+- [x] ==Finish LAB 7.==
+- [x] ==Finish LAB 8.==
+- [x] ==Finish Personal Small Project==
 
 
 ## References
