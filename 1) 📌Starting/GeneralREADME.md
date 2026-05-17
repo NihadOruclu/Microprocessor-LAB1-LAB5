@@ -1,19 +1,24 @@
 # Nihad Oruclu. ID: P000019867 CRN: 20919
 
-## Updates – Version 1.2
+## 🔄 Updates – Version 1.5
 
 ### Added
 - Lab Task 1 – fully commented
 - Lab Task 2 – fully commented
 - Lab Task 3 – fully commented
 - Lab Task 4 – fully commented
+- Lab Task 5 - fully commented
+- Lab 6 - code adde, needs commenting
+- Lab 7 - code adde, needs commenting
+- Lab 8 - code adde, needs commenting
 - `.gitignore` file
 - MIT License
+- Security added
+- Updated style of repository /Orginized
 
-Flowcharts for all labs have been created and will be added soon.  
 The repository is now public for easy access and assessment.
 
-## Installation and TASKS
+## 📦 Installation and TASKS
 
 - [x] ==Install and register through Ardunio IDE.==
 - [x] ==Install and register through Git.==
@@ -30,11 +35,21 @@ The repository is now public for easy access and assessment.
 - [x] ==Finish Personal Small Project==
 
 
-## References
+## 📚 References
+- ATmega328P Datasheet (Microchip Technology, 2018)  
+https://ww1.microchip.com/downloads/en/devicedoc/atmel-7810-automotive-microcontrollers-atmega328p_datasheet.pdf  
+Used for SPI register configuration (SPCR, SPSR, SPDR), CPHA/CPOL timing diagrams, SPI block diagram, and hardware-level communication behavior.
 
-No references currently.
+- ATmega328P Product Page (Microchip)  
+https://www.microchip.com/en-us/product/ATMEGA328P  
+Used for official microcontroller specifications and overview.
 
-## Notes
+- Alternative Datasheet Mirror  
+https://www.alldatasheet.com/datasheet-pdf/pdf/1425005/MICROCHIP/ATMEGA328P.html  
+Backup reference for SPI register definitions and timing diagrams.
+
+
+## 📝 Notes
 
 Welcome to my Repository.Within  README.md file I will be including my youtube links to the labs within references, updates, issues and other relevant information. 
 
@@ -51,4 +66,3 @@ Welcome to my Repository.Within  README.md file I will be including my youtube l
 <p align="center">
   <img src="Images/microprocessor.jpg" alt="Project Image" width="100%"/>
 </p>
-
