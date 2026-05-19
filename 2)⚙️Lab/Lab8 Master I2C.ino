@@ -6,68 +6,68 @@
 #include <stdbool.h>
 
 void TWI_start() {
-    TWCR = (1 << TWINT) | (1 << TWSTA) | (1 << TWEN); // Bayrağı təmizləyir , Start vəziyyəti yaradır, TWI modulu aktiv edir
-    while (!(TWCR & (1 << TWINT))); // Start siqnalı xəttə göndərilənə qədər gözləyir.
+    TWCR = (1 << TWINT) | (1 << TWSTA) | (1 << TWEN); //Clearing flag, then making  START condition and enabling TWI module.
+    while (!(TWCR & (1 << TWINT))); // Waits until START condition is sent tp bus.
 }
 
 void TWI_stop() {
-    TWCR = (1 << TWINT) | (1 << TWSTO) | (1 << TWEN);
+    TWCR = (1 << TWINT) | (1 << TWSTO) | (1 << TWEN); // Stop condition for bus.
 }
 
 void TWI_write(uint8_t data) {
-    TWDR = data;
-    TWCR = (1 << TWINT) | (1 << TWEN);// Bayrağı təmizləyir,TWI modulu aktiv edir 
-    while (!(TWCR & (1 << TWINT)));
+    TWDR = data; // Loading data into data register.
+    TWCR = (1 << TWINT) | (1 << TWEN); // Clearing flag and starting transmission.
+    while (!(TWCR & (1 << TWINT))); // Waits until byte transmission is complete.
 }
 
 uint8_t TWI_read_nack() { 
-    TWCR = (1 << TWINT) | (1 << TWEN); 
-    while (!(TWCR & (1 << TWINT))); 
-    return TWDR; 
+    TWCR = (1 << TWINT) | (1 << TWEN); //Enabling reception without ACK.
+    while (!(TWCR & (1 << TWINT))); // Waits until data is received.
+    return TWDR; // Returns byte from slave.
 }
 
 void send_to_slave(uint8_t data) {
-    TWI_start();
-    TWI_write((SLAVE_ADDR << 1) | 0); // Burada ünvan 1 bit sola sürüşdürülür, axırıncı bit 0 olur
-    TWI_write(data); 
-    TWI_stop();
+    TWI_start(); //Generating start condition.
+    TWI_write((SLAVE_ADDR << 1) | 0); //Sending slave adress.
+    TWI_write(data); // Our actual data.
+    TWI_stop(); // Ending I2C communication
 }
 
 uint8_t request_from_slave() {
     uint8_t data;
-    TWI_start();
-    TWI_write((SLAVE_ADDR << 1) | 1); 
-    data = TWI_read_nack(); // read data from the slave
-    TWI_stop();
-    return data;
+    TWI_start(); // Generateing START condition.
+    TWI_write((SLAVE_ADDR << 1) | 1); // Sending slave address with READ bit.
+    data = TWI_read_nack(); // Reading byte from slave without ACK.
+    TWI_stop(); // Ending I2C communication/
+    return data; // Returning received data.
 }
 
 void setup() {
-    TWSR = 0x00; 
-    TWBR = 72; // suret
-    TWCR = (1 << TWEN); // enable I2C
+    TWSR = 0x00; //Just setting prescaler to 1.
+    TWBR = 72; // Seting I2C speed ~100kHz for 16MHz clock.
+    TWCR = (1 << TWEN); //Enabling TWI hardware module.
 
-    PORTC |= (1 << PC4) | (1 << PC5); // SDA və SCL xətlərində daxili pull-up rezistorları aktiv edir., Xətt boşda olanda 'High' qalsın deyə
+    PORTC |= (1 << PC4) | (1 << PC5); // Enabling pull-up resistors on SDA (PC4) and SCL (PC5).
 
-    DDRB |= (1 << PB5); // 13 cu pin
-    DDRD &= ~(1 << PD2); // Düymə pini üçün pull-up aktiv edir. Düyməyə basanda 0 (GND) oxunacaq.
-    PORTD |= (1 << PD2);
+    DDRB |= (1 << PB5); // Setting PB5 as output.
+    DDRD &= ~(1 << PD2); // Seting PD2 as input (button).
+    PORTD |= (1 << PD2); // Enableign pull-up resistor on button pin.
 }
 
 void loop() {
-    if (!(PIND & (1 << PD2))) {
-        send_to_slave(0x01); //slave led
+    if (!(PIND & (1 << PD2))) { //Checking if button is pressed.
+        send_to_slave(0x01); // Sending ON command to slave LED.
     } else {
-        send_to_slave(0x00);
+        send_to_slave(0x00); // Sending OFF command to slave LED.
     }
 
-    uint8_t received = request_from_slave(); // listen to the slave
+    uint8_t received = request_from_slave(); // Reading response from slave.
 
-    if (received == 0x02) { // if received value from the slave is 2, then light up LED
-        PORTB |= (1 << PB5);
+    if (received == 0x02) { // Checking if slave button was pressed.
+        PORTB |= (1 << PB5); // Turning ON master LED.
     } else { 
-        PORTB &= ~(1 << PB5);
+        PORTB &= ~(1 << PB5); // Turning OFF master LED.
     }
 
-    _delay_ms(10);
+    _delay_ms(10); // Small delay for stability.
 }
