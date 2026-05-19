@@ -1,6 +1,6 @@
 # Nihad Oruclu. ID: P000019867 CRN: 20919
 
-## 🔄 Updates – Version 1.5
+## 🔄 Updates – Version 2.0
 
 ### Added
 - Lab Task 1 – fully commented
@@ -8,9 +8,9 @@
 - Lab Task 3 – fully commented
 - Lab Task 4 – fully commented
 - Lab Task 5 - fully commented
-- Lab 6 - code adde, needs commenting
-- Lab 7 - code adde, needs commenting
-- Lab 8 - code adde, needs commenting
+- Lab 6 - fully commented
+- Lab 7 - fully commented
+- Lab 8 - fully commented
 - `.gitignore` file
 - MIT License
 - Security added
